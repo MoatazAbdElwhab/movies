@@ -6,6 +6,8 @@ class HomeScreen extends StatelessWidget {
   static const routeName = '/';
   @override
   Widget build(BuildContext context) {
+
     return const MovieDetails();
+
   }
 }
