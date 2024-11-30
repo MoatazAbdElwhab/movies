@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movies/home/view/home_screen.dart';
+import 'package:movies/home/view/screens/home_screen.dart';
 import 'package:movies/shared/app_theme.dart';
 
 void main() {
