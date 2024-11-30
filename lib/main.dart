@@ -7,6 +7,7 @@ void main() {
 }
 
 
+
 class Movies extends StatelessWidget {
   const Movies({super.key});
 
