@@ -108,8 +108,19 @@ class _TopSideWidgetState extends State<TopSideWidget> {
                             ),
                           ),
                           const SizedBox(height: 5),
-                          Text(movie.releaseDate!,
-                              style: Theme.of(context).textTheme.bodySmall!),
+                          Row(
+                            children: [
+                              Text(movie.releaseDate!,
+                                  style:
+                                      Theme.of(context).textTheme.bodySmall!),
+                              const SizedBox(
+                                width: 5,
+                              ),
+                              Text(movie.adult! ? 'NC-17' : 'PG-13',
+                                  style:
+                                      Theme.of(context).textTheme.bodySmall!),
+                            ],
+                          ),
                         ],
                       ),
                     ),
