@@ -48,20 +48,19 @@ class _TopSideWidgetState extends State<TopSideWidget> {
                 return Stack(
                   children: [
                     SizedBox(
-                        width: double.infinity,
-                        height: screenHeight * 0.35,
-                        child: CachedNetworkImage(
-                          imageUrl:
-                              ApiConstants.imageBaseUrl + movie.posterPath!,
-                          fit: BoxFit.cover,
-                          placeholder: (context, url) =>
-                              const LoadingIndicator(),
-                          // Show while loading
-                          errorWidget: (context, url, error) => Image.asset(
-                            'assets/images/placeholder_image.jpg',
-                            fit: BoxFit.fill,
-                          ), // Show on error,
-                        )),
+                      width: double.infinity,
+                      height: screenHeight * 0.35,
+                      child: CachedNetworkImage(
+                        imageUrl: ApiConstants.imageBaseUrl + movie.posterPath!,
+                        fit: BoxFit.cover,
+                        placeholder: (context, url) => const LoadingIndicator(),
+                        // Show while loading
+                        errorWidget: (context, url, error) => Image.asset(
+                          'assets/images/placeholder_image.jpg',
+                          fit: BoxFit.fill,
+                        ), // Show on error,
+                      ),
+                    ),
                     Positioned(
                       left: screenWidth * 0.42,
                       top: screenHeight * 0.13,
@@ -85,7 +84,7 @@ class _TopSideWidgetState extends State<TopSideWidget> {
                               errorWidget: (context, url, error) => Image.asset(
                                 'assets/images/placeholder_image.jpg',
                                 fit: BoxFit.fill,
-                              ), // Show on error,
+                              ),
                             ),
                           ),
                           Image.asset('assets/images/bookmark.png'),
