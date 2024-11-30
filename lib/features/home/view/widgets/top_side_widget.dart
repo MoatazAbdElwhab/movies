@@ -5,7 +5,7 @@ import 'package:movies/shared/widgets/error_indicator.dart';
 import 'package:movies/shared/widgets/loading_indicator.dart';
 import 'package:provider/provider.dart';
 import '../../../../shared/api_constants..dart';
-import '../../view_model/top_rated_view_model.dart';
+import '../../view_model/popular_movies_view_model.dart';
 
 class TopSideWidget extends StatefulWidget {
   const TopSideWidget({super.key});
@@ -15,14 +15,13 @@ class TopSideWidget extends StatefulWidget {
 }
 
 class _TopSideWidgetState extends State<TopSideWidget> {
-  late final TopRatedViewModel topRatedViewModel;
+  late final PopularMoviesViewModel topRatedViewModel;
 
   @override
   void initState() {
     super.initState();
-    topRatedViewModel = TopRatedViewModel();
-    topRatedViewModel
-        .getTopRatedMovies(); // Fetch movies when the widget initializes
+    topRatedViewModel = PopularMoviesViewModel();
+    topRatedViewModel.getTopRatedMovies();
   }
 
   @override
@@ -30,9 +29,9 @@ class _TopSideWidgetState extends State<TopSideWidget> {
     final screenHeight = MediaQuery.of(context).size.height;
     final screenWidth = MediaQuery.of(context).size.width;
 
-    return ChangeNotifierProvider<TopRatedViewModel>(
+    return ChangeNotifierProvider<PopularMoviesViewModel>(
       create: (_) => topRatedViewModel,
-      child: Consumer<TopRatedViewModel>(
+      child: Consumer<PopularMoviesViewModel>(
         builder: (context, viewModel, child) {
           if (viewModel.isLoading) {
             return const LoadingIndicator();

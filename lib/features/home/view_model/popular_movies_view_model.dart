@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
-import 'package:movies/features/home/data/data_sources/top_rated_data_sources/top_rated_api_data_source.dart';
 import 'package:movies/features/home/data/models/MovieModel.dart';
+import '../data/data_sources/popular_movies_data_sources/popular_movies_api_data_source.dart';
 
-class TopRatedViewModel extends ChangeNotifier {
+class PopularMoviesViewModel extends ChangeNotifier {
   List<Movies> movies = [];
   String? errorMessage;
   bool isLoading = false;
@@ -11,7 +11,7 @@ class TopRatedViewModel extends ChangeNotifier {
     try {
       isLoading = true;
       notifyListeners();
-      movies = await TopRatedApiDataSource.getTopRatedMovies();
+      movies = await PopularMoviesApiDataSource.getPopularMovies();
     } catch (error) {
       errorMessage = error.toString();
     }
