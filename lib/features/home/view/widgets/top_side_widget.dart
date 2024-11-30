@@ -5,7 +5,7 @@ import 'package:movies/shared/widgets/error_indicator.dart';
 import 'package:movies/shared/widgets/loading_indicator.dart';
 import 'package:provider/provider.dart';
 import '../../../../shared/api_constants..dart';
-import '../../view_model/top_rated_view_model.dart';
+import '../../view_model/popular_movies_view_model.dart';
 
 class TopSideWidget extends StatefulWidget {
   const TopSideWidget({super.key});
@@ -15,14 +15,13 @@ class TopSideWidget extends StatefulWidget {
 }
 
 class _TopSideWidgetState extends State<TopSideWidget> {
-  late final TopRatedViewModel topRatedViewModel;
+  late final PopularMoviesViewModel topRatedViewModel;
 
   @override
   void initState() {
     super.initState();
-    topRatedViewModel = TopRatedViewModel();
-    topRatedViewModel
-        .getTopRatedMovies(); // Fetch movies when the widget initializes
+    topRatedViewModel = PopularMoviesViewModel();
+    topRatedViewModel.getTopRatedMovies();
   }
 
   @override
@@ -30,9 +29,9 @@ class _TopSideWidgetState extends State<TopSideWidget> {
     final screenHeight = MediaQuery.of(context).size.height;
     final screenWidth = MediaQuery.of(context).size.width;
 
-    return ChangeNotifierProvider<TopRatedViewModel>(
+    return ChangeNotifierProvider<PopularMoviesViewModel>(
       create: (_) => topRatedViewModel,
-      child: Consumer<TopRatedViewModel>(
+      child: Consumer<PopularMoviesViewModel>(
         builder: (context, viewModel, child) {
           if (viewModel.isLoading) {
             return const LoadingIndicator();
@@ -48,20 +47,19 @@ class _TopSideWidgetState extends State<TopSideWidget> {
                 return Stack(
                   children: [
                     SizedBox(
-                        width: double.infinity,
-                        height: screenHeight * 0.35,
-                        child: CachedNetworkImage(
-                          imageUrl:
-                              ApiConstants.imageBaseUrl + movie.posterPath!,
-                          fit: BoxFit.cover,
-                          placeholder: (context, url) =>
-                              const LoadingIndicator(),
-                          // Show while loading
-                          errorWidget: (context, url, error) => Image.asset(
-                            'assets/images/placeholder_image.jpg',
-                            fit: BoxFit.fill,
-                          ), // Show on error,
-                        )),
+                      width: double.infinity,
+                      height: screenHeight * 0.35,
+                      child: CachedNetworkImage(
+                        imageUrl: ApiConstants.imageBaseUrl + movie.posterPath!,
+                        fit: BoxFit.cover,
+                        placeholder: (context, url) => const LoadingIndicator(),
+                        // Show while loading
+                        errorWidget: (context, url, error) => Image.asset(
+                          'assets/images/placeholder_image.jpg',
+                          fit: BoxFit.fill,
+                        ), // Show on error,
+                      ),
+                    ),
                     Positioned(
                       left: screenWidth * 0.42,
                       top: screenHeight * 0.13,
@@ -85,7 +83,7 @@ class _TopSideWidgetState extends State<TopSideWidget> {
                               errorWidget: (context, url, error) => Image.asset(
                                 'assets/images/placeholder_image.jpg',
                                 fit: BoxFit.fill,
-                              ), // Show on error,
+                              ),
                             ),
                           ),
                           Image.asset('assets/images/bookmark.png'),
@@ -108,8 +106,19 @@ class _TopSideWidgetState extends State<TopSideWidget> {
                             ),
                           ),
                           const SizedBox(height: 5),
-                          Text(movie.releaseDate!,
-                              style: Theme.of(context).textTheme.bodySmall!),
+                          Row(
+                            children: [
+                              Text(movie.releaseDate!,
+                                  style:
+                                      Theme.of(context).textTheme.bodySmall!),
+                              const SizedBox(
+                                width: 5,
+                              ),
+                              Text(movie.adult! ? 'NC-17' : 'PG-13',
+                                  style:
+                                      Theme.of(context).textTheme.bodySmall!),
+                            ],
+                          ),
                         ],
                       ),
                     ),
