@@ -53,7 +53,6 @@ class _TopSideWidgetState extends State<TopSideWidget> {
                         imageUrl: ApiConstants.imageBaseUrl + movie.posterPath!,
                         fit: BoxFit.cover,
                         placeholder: (context, url) => const LoadingIndicator(),
-                        // Show while loading
                         errorWidget: (context, url, error) => Image.asset(
                           'assets/images/placeholder_image.jpg',
                           fit: BoxFit.fill,
@@ -79,7 +78,6 @@ class _TopSideWidgetState extends State<TopSideWidget> {
                               fit: BoxFit.cover,
                               placeholder: (context, url) =>
                                   const LoadingIndicator(),
-                              // Show while loading
                               errorWidget: (context, url, error) => Image.asset(
                                 'assets/images/placeholder_image.jpg',
                                 fit: BoxFit.fill,
