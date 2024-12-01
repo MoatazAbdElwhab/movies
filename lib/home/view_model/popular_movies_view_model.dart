@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:movies/features/home/data/models/MovieModel.dart';
+import 'package:movies/home/data/models/MovieModel.dart';
 import '../data/data_sources/popular_movies_data_sources/popular_movies_api_data_source.dart';
 
 class PopularMoviesViewModel extends ChangeNotifier {

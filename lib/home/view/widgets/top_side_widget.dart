@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:movies/shared/widgets/error_indicator.dart';
 import 'package:movies/shared/widgets/loading_indicator.dart';
 import 'package:provider/provider.dart';
-import '../../../../shared/api_constants..dart';
+import '../../../shared/api_constants..dart';
 import '../../view_model/popular_movies_view_model.dart';
 
 class TopSideWidget extends StatefulWidget {
@@ -48,7 +48,7 @@ class _TopSideWidgetState extends State<TopSideWidget> {
                   children: [
                     SizedBox(
                       width: double.infinity,
-                      height: screenHeight * 0.35,
+                      height: screenHeight * 0.3,
                       child: CachedNetworkImage(
                         imageUrl: ApiConstants.imageBaseUrl + movie.posterPath!,
                         fit: BoxFit.cover,
@@ -73,16 +73,21 @@ class _TopSideWidgetState extends State<TopSideWidget> {
                           SizedBox(
                             width: screenWidth * 0.3,
                             height: screenHeight * 0.25,
-                            child: CachedNetworkImage(
-                              imageUrl: ApiConstants.imageBaseUrl +
-                                  movie.backdropPath!,
-                              fit: BoxFit.cover,
-                              placeholder: (context, url) =>
-                                  const LoadingIndicator(),
-                              // Show while loading
-                              errorWidget: (context, url, error) => Image.asset(
-                                'assets/images/placeholder_image.jpg',
-                                fit: BoxFit.fill,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(5),
+                              child: CachedNetworkImage(
+                                imageUrl: ApiConstants.imageBaseUrl +
+                                    movie.backdropPath!,
+
+                                fit: BoxFit.cover,
+                                placeholder: (context, url) =>
+                                    const LoadingIndicator(),
+                                // Show while loading
+                                errorWidget: (context, url, error) =>
+                                    Image.asset(
+                                  'assets/images/placeholder_image.jpg',
+                                  fit: BoxFit.fill,
+                                ),
                               ),
                             ),
                           ),
@@ -95,7 +100,7 @@ class _TopSideWidgetState extends State<TopSideWidget> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          SizedBox(height: screenHeight * 0.36),
+                          SizedBox(height: screenHeight * 0.32),
                           Padding(
                             padding:
                                 const EdgeInsetsDirectional.only(end: 20.0),
