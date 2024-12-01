@@ -1,60 +1,45 @@
 import 'package:flutter/material.dart';
-import 'package:movies/shared/app_theme.dart';
+import 'package:movies/details/view/widgets/movie_details_builder.dart';
+import 'package:movies/details/view_model/details_view_model.dart';
+import 'package:provider/provider.dart';
 
-class MovieDetailsSection extends StatelessWidget {
-  const MovieDetailsSection({super.key});
+class MovieDetailsSection extends StatefulWidget {
+  const MovieDetailsSection(this.movieId, {super.key});
+  final String movieId;
+  @override
+  State<MovieDetailsSection> createState() => _MovieDetailsSectionState();
+}
+
+class _MovieDetailsSectionState extends State<MovieDetailsSection> {
+  final DetailsViewModel viewModel = DetailsViewModel();
+  @override
+  void initState() {
+    super.initState();
+    viewModel.getMovieDetails(widget.movieId);
+  }
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: MediaQuery.sizeOf(context).height * .6,
-      child: Column(
-        children: [
-          const Image(
-            image: NetworkImage(
-                'https://static1.srcdn.com/wordpress/wp-content/uploads/2019/08/Dora-and-the-Lost-City-of-Gold-Movie.jpg'),
-            fit: BoxFit.fill,
-          ),
-          Container(
-            padding: const EdgeInsets.all(20),
-            child: const Column(
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Dora and the lost city of gold',
-                      style: TextStyle(color: AppTheme.whiteColor),
-                    ),
-                    Row(
-                      children: [
-                        Text(
-                          '2019',
-                          style: TextStyle(color: AppTheme.greyColor),
-                        ),
-                        SizedBox(
-                          width: 12,
-                        ),
-                        Text('PG-13',
-                            style: TextStyle(color: AppTheme.greyColor)),
-                        SizedBox(
-                          width: 12,
-                        ),
-                        Text('2h 7m',
-                            style: TextStyle(color: AppTheme.greyColor)),
-                      ],
-                    )
-                  ],
-                ),
-                Row(
-                  children: [
-                    
-                  ],
-                )
-              ],
-            ),
-          ),
-        ],
+    return ChangeNotifierProvider(
+      create: (_) => viewModel,
+      child: Consumer<DetailsViewModel>(
+        builder: (_, viewModel, __) {
+          if (viewModel.errorMessage != null) {
+            return Center(
+              child: Text(
+                'Error: ${viewModel.errorMessage}',
+                style: const TextStyle(color: Colors.red),
+              ),
+            );
+          }
+          if (viewModel.movie == null) {
+            return const Center(child: CircularProgressIndicator());
+          }
+          final movie = viewModel.movie!;
+          return MovieDetailsBuilder(
+            movie: movie,
+          );
+        },
       ),
     );
   }

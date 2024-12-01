@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movies/details/view/screens/movie_details.dart';
 import 'package:movies/shared/app_theme.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -16,11 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
       'Home',
       style: TextStyle(color: AppTheme.whiteColor),
     )),
-    const Center(
-        child: Text(
-      'Search',
-      style: TextStyle(color: AppTheme.whiteColor),
-    )),
+    const MovieDetails(),
     const Center(
         child: Text(
       'Browse',

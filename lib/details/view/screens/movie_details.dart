@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movies/details/view/widgets/movie_details_section.dart';
+import 'package:movies/details/view/widgets/similar_section.dart';
 
 class MovieDetails extends StatelessWidget {
   const MovieDetails({super.key});
@@ -18,7 +19,12 @@ class MovieDetails extends StatelessWidget {
           style: TextStyle(fontSize: 20),
         ),
       ),
-      body: MovieDetailsSection(),
+      body: const Column(
+        children: [
+          Expanded(flex: 2, child: MovieDetailsSection('558449')),
+          Expanded(flex: 1, child: SimilarSection()),
+        ],
+      ),
     );
   }
 }

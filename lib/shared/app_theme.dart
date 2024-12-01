@@ -10,7 +10,11 @@ class AppTheme {
 
   static ThemeData theme = ThemeData(
     scaffoldBackgroundColor: primaryDarkColor,
-    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+    appBarTheme: const AppBarTheme(
+        backgroundColor: greyDarkColor,
+        titleTextStyle: TextStyle(color: whiteColor)),
+    iconTheme: const IconThemeData(color: whiteColor),
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       type: BottomNavigationBarType.fixed,
       backgroundColor: greyDarkColor,
       selectedItemColor: goldColor,
