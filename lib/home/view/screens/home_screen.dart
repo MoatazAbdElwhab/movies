@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:movies/features/home/view/screens/home_tab.dart';
+import 'package:movies/home/view/screens/home_tab.dart';
 import 'package:movies/shared/app_theme.dart';
+import 'package:movies/shared/widgets/favorite_button.dart';
+import 'package:movies/shared/widgets/movie_img_home.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -12,7 +14,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   List<Widget> tabs = [
-   const HomeTab(),
+    const HomeTab(),
     const Center(
         child: Text(
       'Search',
