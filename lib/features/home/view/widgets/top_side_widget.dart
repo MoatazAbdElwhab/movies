@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:movies/shared/widgets/error_indicator.dart';
 import 'package:movies/shared/widgets/loading_indicator.dart';
 import 'package:provider/provider.dart';
-import '../../../../shared/api_constants..dart';
+import '../../../../shared/api_constants.dart';
 import '../../view_model/top_rated_view_model.dart';
 
 class TopSideWidget extends StatefulWidget {

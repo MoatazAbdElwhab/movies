@@ -7,7 +7,7 @@ class AppTheme {
   static const Color greyColor = Color(0xFFB5B4B4);
   static const Color whiteColor = Color(0xFFFFFFFF);
   static const Color yellowColor = Color(0xFFF7B539);
-  static const Color greyDarkColor = Color(0xFF1A1A1A);
+  static const Color greyDarkColor = Color(0xFF282A28);
 
   static final ThemeData theme = ThemeData(
     scaffoldBackgroundColor: primaryDarkColor,
