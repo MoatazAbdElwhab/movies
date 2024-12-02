@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:movies/details/data/models/movie_similar/similar_movie.dart';
 import 'package:movies/details/view/widgets/movie_data_row.dart';
 import 'package:movies/details/view/widgets/movie_rating_row.dart';
 import 'package:movies/shared/app_theme.dart';
+import 'package:movies/shared/utils/utils.dart';
 
 class MovieItem extends StatelessWidget {
-  const MovieItem({super.key});
-
+  const MovieItem({super.key, required this.movie});
+  final SimilarMovie movie;
   @override
   Widget build(BuildContext context) {
+    String posterPath =
+        'https://image.tmdb.org/t/p/original${movie.posterPath}';
     return SingleChildScrollView(
       child: Container(
-        width: 100,
-        height: 180,
+        width: 110,
+        height: 190,
         decoration: BoxDecoration(
           color: AppTheme.greyDarkColor,
           borderRadius: BorderRadius.circular(5),
@@ -35,9 +39,8 @@ class MovieItem extends StatelessWidget {
                 children: [
                   ClipRRect(
                     borderRadius: BorderRadius.circular(5),
-                    child: const Image(
-                      image: NetworkImage(
-                          'https://m.media-amazon.com/images/M/MV5BYjUwNjJmOGEtOGI0YS00ZjAyLWJjMTYtMjMzZjNhYWQxODY1XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg'),
+                    child: Image(
+                      image: NetworkImage(posterPath),
                       fit: BoxFit.cover,
                       width: double.infinity,
                       height: double.infinity,
@@ -57,33 +60,39 @@ class MovieItem extends StatelessWidget {
                 ],
               ),
             ),
-            const Expanded(
+            Expanded(
                 flex: 1,
                 child: Padding(
-                  padding: EdgeInsets.only(left: 8.0),
+                  padding: const EdgeInsets.only(left: 8.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      SizedBox(
+                      const SizedBox(
                         height: 6,
                       ),
                       MovieRatingRow(
                         iconSize: 12,
                         fontSize: 10,
-                        rating: 6.8,
+                        rating: movie.voteAverage ?? 0.0,
                         sizedBoxWidth: 4,
                       ),
                       Text(
-                        'Ahmed',
-                        style:
-                            TextStyle(color: AppTheme.whiteColor, fontSize: 10),
+                        movie.originalTitle ?? 'no title',
+                        style: const TextStyle(
+                            color: AppTheme.whiteColor, fontSize: 10),
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 2,
                       ),
                       MovieDataRow(
-                          fontSize: 8,
-                          sizedBoxWidth: 4,
-                          releaseDate: '2018',
-                          pg: 'NC-17',
-                          runTime: '2h 7m')
+                        fontSize: 8,
+                        sizedBoxWidth: 4,
+                        releaseDate: extractYear(movie.releaseDate) ?? '',
+                        pg: movie.adult == null
+                            ? 'R'
+                            : movie.adult!
+                                ? 'PG-13'
+                                : 'NC-17',
+                      )
                     ],
                   ),
                 ))

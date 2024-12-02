@@ -21,8 +21,8 @@ class MovieDetails extends StatelessWidget {
       ),
       body: const Column(
         children: [
-          Expanded(flex: 2, child: MovieDetailsSection('558449')),
-          Expanded(flex: 1, child: SimilarSection()),
+          Expanded(flex: 2, child: MovieDetailsSection('402431')),
+          Expanded(flex: 1, child: SimilarSection('402431')),
         ],
       ),
     );

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movies/details/data/models/movie_details_model.dart';
+import 'package:movies/details/data/models/movie_details/movie_details_model.dart';
 import 'package:movies/details/view/widgets/movie_data_row.dart';
 import 'package:movies/details/view/widgets/movie_rating_row.dart';
 import 'package:movies/details/view/widgets/movie_tag.dart';
@@ -47,15 +47,15 @@ class MovieDetailsBuilder extends StatelessWidget {
                         color: AppTheme.whiteColor, fontSize: 18),
                   ),
                   MovieDataRow(
-                    releaseDate: movie.releaseDate ?? '2017',
+                    releaseDate: extractYear(movie.releaseDate) ?? '',
                     pg: movie.adult == null
                         ? 'R'
                         : movie.adult!
                             ? 'NC-17'
                             : 'PG-13',
-                    runTime: minutesToHours(movie.runtime) ?? '2h 32m',
+                    runTime: minutesToHours(movie.runtime) ?? '?h ??m',
                     fontSize: 10,
-                    sizedBoxWidth: 12,
+                    sizedBoxWidth: 6,
                   )
                 ],
               ),

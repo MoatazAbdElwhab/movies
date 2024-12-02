@@ -9,14 +9,14 @@ class MovieDataRow extends StatelessWidget {
     required this.sizedBoxWidth,
     required this.releaseDate,
     required this.pg,
-    required this.runTime,
+    this.runTime,
   });
 
   final double fontSize;
   final double sizedBoxWidth;
   final String releaseDate;
   final String pg;
-  final String runTime;
+  final String? runTime;
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +34,7 @@ class MovieDataRow extends StatelessWidget {
         SizedBox(
           width: sizedBoxWidth,
         ),
-        Text(runTime,
+        Text(runTime ?? '',
             style: TextStyle(color: AppTheme.greyColor, fontSize: fontSize)),
       ],
     );
