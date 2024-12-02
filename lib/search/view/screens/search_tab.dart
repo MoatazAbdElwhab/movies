@@ -10,12 +10,25 @@ import '../widgets/movie_search_item.dart';
 import '../widgets/search_text_field.dart';
 import '../../../shared/utils/validator.dart'; // Import Validator
 
-class SearchTab extends StatelessWidget {
+class SearchTab extends StatefulWidget {
   const SearchTab({super.key});
 
   @override
+  State<SearchTab> createState() => _SearchTabState();
+}
+
+class _SearchTabState extends State<SearchTab> {
+  late final SearchViewModel viewModel;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    viewModel = Provider.of<SearchViewModel>(context, listen: false);
+    viewModel.clearSearchMovies();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final viewModel = Provider.of<SearchViewModel>(context, listen: false);
     final TextEditingController controller = TextEditingController();
 
     return SafeArea(
