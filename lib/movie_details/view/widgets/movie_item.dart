@@ -15,7 +15,7 @@ class MovieItem extends StatelessWidget {
     String posterPath = '${ApiConstants.imageBaseUrl}${movie.posterPath}';
     return Container(
       width: 110,
-      height: MediaQuery.sizeOf(context).height * 20,
+      height: MediaQuery.sizeOf(context).height * 25,
       margin: const EdgeInsets.only(bottom: 20),
       decoration: BoxDecoration(
         color: AppTheme.greyDarkColor,
@@ -57,7 +57,7 @@ class MovieItem extends StatelessWidget {
                       style: const TextStyle(
                           color: AppTheme.whiteColor, fontSize: 10),
                       overflow: TextOverflow.ellipsis,
-                      maxLines: 2,
+                      maxLines: 1,
                     ),
                     MovieDataRow(
                       fontSize: 8,
