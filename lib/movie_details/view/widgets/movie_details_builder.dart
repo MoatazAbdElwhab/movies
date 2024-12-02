@@ -74,7 +74,7 @@ class MovieDetailsBuilder extends StatelessWidget {
                 children: [
                   SizedBox(
                     width: MediaQuery.sizeOf(context).width * .3,
-                    height: MediaQuery.sizeOf(context).height * .2,
+                    height: MediaQuery.sizeOf(context).height * .25,
                     child: Stack(
                       children: [
                         ClipRRect(
@@ -96,7 +96,7 @@ class MovieDetailsBuilder extends StatelessWidget {
                   ),
                   SizedBox(
                     width: MediaQuery.sizeOf(context).width * .58,
-                    height: MediaQuery.sizeOf(context).height * .2,
+                    height: MediaQuery.sizeOf(context).height * .25,
                     child: Column(
                       children: [
                         GridView.builder(
@@ -107,7 +107,7 @@ class MovieDetailsBuilder extends StatelessWidget {
                               const SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 3,
                             mainAxisSpacing: 4,
-                            crossAxisSpacing: 8,
+                            crossAxisSpacing: 4,
                             childAspectRatio: 3,
                           ),
                           itemBuilder: (context, index) => tags[index],
