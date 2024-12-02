@@ -4,6 +4,7 @@ import 'package:movies/details/view/widgets/movie_data_row.dart';
 import 'package:movies/details/view/widgets/movie_rating_row.dart';
 import 'package:movies/shared/app_theme.dart';
 import 'package:movies/shared/utils/utils.dart';
+import 'package:movies/shared/widgets/favorite_button.dart';
 
 class MovieItem extends StatelessWidget {
   const MovieItem({super.key, required this.movie});
@@ -46,17 +47,7 @@ class MovieItem extends StatelessWidget {
                       height: double.infinity,
                     ),
                   ),
-                  Positioned(
-                    top: -13,
-                    left: -17,
-                    child: IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.bookmark_add,
-                          size: 40,
-                          color: AppTheme.greyColor,
-                        )),
-                  )
+                  FavoriteButton()
                 ],
               ),
             ),
