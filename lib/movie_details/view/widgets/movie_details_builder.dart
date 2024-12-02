@@ -108,7 +108,7 @@ class MovieDetailsBuilder extends StatelessWidget {
                             crossAxisCount: 3,
                             mainAxisSpacing: 4,
                             crossAxisSpacing: 4,
-                            childAspectRatio: 3,
+                            childAspectRatio: 4,
                           ),
                           itemBuilder: (context, index) => tags[index],
                           itemCount: tags.length,
@@ -121,7 +121,7 @@ class MovieDetailsBuilder extends StatelessWidget {
                           style: const TextStyle(
                               color: AppTheme.whiteColor, fontSize: 13),
                           overflow: TextOverflow.ellipsis,
-                          maxLines: 4,
+                          maxLines: 3,
                         ),
                         const SizedBox(
                           height: 12,
