@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme {
   static const Color primaryDarkColor = Color(0xFF121312);
@@ -8,17 +9,25 @@ class AppTheme {
   static const Color yellowColor = Color(0xFFF7B539);
   static const Color greyDarkColor = Color(0xFF1A1A1A);
 
-  static ThemeData theme = ThemeData(
+  static final ThemeData theme = ThemeData(
     scaffoldBackgroundColor: primaryDarkColor,
+
     appBarTheme: const AppBarTheme(
         backgroundColor: greyDarkColor,
         titleTextStyle: TextStyle(color: whiteColor)),
     iconTheme: const IconThemeData(color: whiteColor),
+
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       type: BottomNavigationBarType.fixed,
       backgroundColor: greyDarkColor,
       selectedItemColor: goldColor,
       unselectedItemColor: greyColor,
+    ),
+    textTheme: TextTheme(
+      titleMedium: GoogleFonts.inter(
+          fontSize: 16, fontWeight: FontWeight.w400, color: whiteColor),
+      bodySmall: GoogleFonts.inter(
+          fontSize: 10, fontWeight: FontWeight.w400, color: greyColor),
     ),
   );
 }
