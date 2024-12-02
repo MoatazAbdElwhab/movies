@@ -6,7 +6,7 @@ import 'package:movies/shared/models/movie_model.dart';
 
 class PopularMoviesApiDataSource {
   static Future<List<MovieModel>> getPopularMovies() async {
-    final uri = Uri.https(ApiConstants.baseUrl, ApiConstants.topRatedEndPoint);
+    final uri = Uri.https(ApiConstants.baseUrl, ApiConstants.popularMoviesEndPoint);
     final response = await http
         .get(uri, headers: {'Authorization': ApiConstants.bearerToken});
     final responseBody = response.body;
