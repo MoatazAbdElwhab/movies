@@ -21,10 +21,12 @@ class SearchViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> clearSearchMovies() async {
+  Future<void> clearSearchMovies({bool icon = false}) async {
     queryResult = '';
     movies = [];
     errorMessage = null;
-    notifyListeners();
+    if (icon) {
+      notifyListeners();
+    }
   }
 }

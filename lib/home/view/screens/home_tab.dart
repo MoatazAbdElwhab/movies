@@ -6,14 +6,10 @@ class HomeTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
-      child: Scaffold(
-        body: Column(
-          children: [
-            TopSideWidget(),
-          ],
-        ),
-      ),
+    return Column(
+      children: [
+        TopSideWidget(),
+      ],
     );
   }
 }
