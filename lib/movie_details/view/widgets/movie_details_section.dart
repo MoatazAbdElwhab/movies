@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:movies/details/view/widgets/movie_details_builder.dart';
-import 'package:movies/details/view_model/details_view_model.dart';
+import 'package:movies/movie_details/view/widgets/movie_details_builder.dart';
+import 'package:movies/movie_details/view_model/details_view_model.dart';
+import 'package:movies/shared/widgets/loading_indicator.dart';
 import 'package:provider/provider.dart';
 
 class MovieDetailsSection extends StatefulWidget {
@@ -33,7 +34,7 @@ class _MovieDetailsSectionState extends State<MovieDetailsSection> {
             );
           }
           if (viewModel.movie == null) {
-            return const Center(child: CircularProgressIndicator());
+            return const Center(child: LoadingIndicator());
           }
           final movie = viewModel.movie!;
           return MovieDetailsBuilder(

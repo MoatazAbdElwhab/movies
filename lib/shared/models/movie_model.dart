@@ -1,4 +1,4 @@
-class SimilarMovie {
+class MovieModel {
   bool? adult;
   String? backdropPath;
   List<int>? genreIds;
@@ -14,7 +14,7 @@ class SimilarMovie {
   double? voteAverage;
   int? voteCount;
 
-  SimilarMovie(
+  MovieModel(
       {this.adult,
       this.backdropPath,
       this.genreIds,
@@ -30,7 +30,7 @@ class SimilarMovie {
       this.voteAverage,
       this.voteCount});
 
-  SimilarMovie.fromJson(Map<String, dynamic> json) {
+  MovieModel.fromJson(Map<String, dynamic> json) {
     adult = json['adult'];
     backdropPath = json['backdrop_path'];
     genreIds = json['genre_ids'].cast<int>();

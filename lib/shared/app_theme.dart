@@ -11,12 +11,11 @@ class AppTheme {
 
   static final ThemeData theme = ThemeData(
     scaffoldBackgroundColor: primaryDarkColor,
-
     appBarTheme: const AppBarTheme(
-        backgroundColor: greyDarkColor,
-        titleTextStyle: TextStyle(color: whiteColor)),
-    iconTheme: const IconThemeData(color: whiteColor),
-
+      foregroundColor: whiteColor,
+      backgroundColor: greyDarkColor,
+      titleTextStyle: TextStyle(color: whiteColor),
+    ),
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       type: BottomNavigationBarType.fixed,
       backgroundColor: greyDarkColor,

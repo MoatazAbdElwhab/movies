@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:movies/details/data/models/movie_similar/similar_movie.dart';
-import 'package:movies/details/view/widgets/movie_data_row.dart';
-import 'package:movies/details/view/widgets/movie_rating_row.dart';
+import 'package:movies/shared/api_constants..dart';
+import 'package:movies/shared/models/movie_model.dart';
+import 'package:movies/movie_details/view/widgets/movie_data_row.dart';
+import 'package:movies/movie_details/view/widgets/movie_rating_row.dart';
 import 'package:movies/shared/app_theme.dart';
 import 'package:movies/shared/utils/utils.dart';
-import 'package:movies/shared/widgets/favorite_button.dart';
+import 'package:movies/shared/widgets/movie_img_home.dart';
 
 class MovieItem extends StatelessWidget {
   const MovieItem({super.key, required this.movie});
-  final SimilarMovie movie;
+  final MovieModel movie;
   @override
   Widget build(BuildContext context) {
-    String posterPath =
-        'https://image.tmdb.org/t/p/original${movie.posterPath}';
+    String posterPath = '${ApiConstants.imageBaseUrl}${movie.posterPath}';
     return SingleChildScrollView(
       child: Container(
         width: 110,
@@ -30,26 +30,11 @@ class MovieItem extends StatelessWidget {
             ),
           ],
         ),
-        clipBehavior: Clip.hardEdge,
         child: Column(
           children: [
             Expanded(
               flex: 2,
-              child: Stack(
-                clipBehavior: Clip.none,
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(5),
-                    child: Image(
-                      image: NetworkImage(posterPath),
-                      fit: BoxFit.cover,
-                      width: double.infinity,
-                      height: double.infinity,
-                    ),
-                  ),
-                  FavoriteButton()
-                ],
-              ),
+              child: MovieImgHome(imgUrl: posterPath),
             ),
             Expanded(
                 flex: 1,

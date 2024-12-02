@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:movies/details/view/screens/movie_details.dart';
+import 'package:movies/movie_details/view/screens/movie_details.dart';
 
 import 'package:movies/home/view/screens/home_tab.dart';
 
@@ -18,14 +18,10 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   List<Widget> tabs = [
-
+    const HomeTab(),
     const Center(
-        child: Text(
-      'Home',
-      style: TextStyle(color: AppTheme.whiteColor),
-    )),
-    const MovieDetails(),
-
+      child: Text('Search'),
+    ),
     const Center(
         child: Text(
       'Browse',

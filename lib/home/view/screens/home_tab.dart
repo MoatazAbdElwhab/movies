@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movies/movie_details/view/screens/movie_details.dart';
 import '../widgets/top_side_widget.dart';
 
 class HomeTab extends StatelessWidget {

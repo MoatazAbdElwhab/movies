@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:movies/details/data/details_data_source/similar_data_source.dart';
-import 'package:movies/details/data/models/movie_similar/similar_movie.dart';
+import 'package:movies/movie_details/data/details_data_source/similar_data_source.dart';
+import 'package:movies/shared/models/movie_model.dart';
 
 class SimilarViewModel with ChangeNotifier {
   final dataSource = SimilarDataSource();
 
-  List<SimilarMovie>? movies;
+  List<MovieModel>? movies;
 
   String? errorMessage;
 

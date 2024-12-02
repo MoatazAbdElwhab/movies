@@ -1,8 +1,11 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:movies/shared/widgets/favorite_button.dart';
+import 'package:movies/shared/widgets/loading_indicator.dart';
 
 class MovieImgHome extends StatelessWidget {
-  const MovieImgHome({super.key});
+  final String imgUrl;
+  const MovieImgHome({super.key, required this.imgUrl});
 
   @override
   Widget build(BuildContext context) {
@@ -11,8 +14,11 @@ class MovieImgHome extends StatelessWidget {
       children: [
         ClipRRect(
           borderRadius: BorderRadius.circular(5),
-          child: Image.asset(
-            'assets/images/film_picture.png',
+          child: CachedNetworkImage(
+            imageUrl: imgUrl,
+            placeholder: (context, __) => const LoadingIndicator(),
+            errorWidget: (context, _, __) =>
+                const Icon(Icons.image_not_supported_outlined),
             height: size.height * 0.22,
             width: size.width * 0.3,
             fit: BoxFit.cover,

@@ -1,11 +1,14 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:movies/details/data/models/movie_details/movie_details_model.dart';
-import 'package:movies/details/view/widgets/movie_data_row.dart';
-import 'package:movies/details/view/widgets/movie_rating_row.dart';
-import 'package:movies/details/view/widgets/movie_tag.dart';
+import 'package:movies/movie_details/data/models/movie_details/movie_details_model.dart';
+import 'package:movies/movie_details/view/widgets/movie_data_row.dart';
+import 'package:movies/movie_details/view/widgets/movie_rating_row.dart';
+import 'package:movies/movie_details/view/widgets/movie_tag.dart';
+import 'package:movies/shared/api_constants..dart';
 import 'package:movies/shared/app_theme.dart';
 import 'package:movies/shared/utils/utils.dart';
 import 'package:movies/shared/widgets/favorite_button.dart';
+import 'package:movies/shared/widgets/loading_indicator.dart';
 
 class MovieDetailsBuilder extends StatelessWidget {
   const MovieDetailsBuilder({
@@ -17,10 +20,8 @@ class MovieDetailsBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String backdropPath =
-        'https://image.tmdb.org/t/p/original${movie.backdropPath}';
-    String posterPath =
-        'https://image.tmdb.org/t/p/original${movie.posterPath}';
+    String backdropPath = '${ApiConstants.imageBaseUrl}${movie.backdropPath}';
+    String posterPath = '${ApiConstants.imageBaseUrl}${movie.posterPath}';
 
     List<MovieTag> tags = movie.genres!
         .map(
@@ -29,14 +30,17 @@ class MovieDetailsBuilder extends StatelessWidget {
         .toList();
     return Column(
       children: [
-        Image(
-          image: NetworkImage(backdropPath),
-          fit: BoxFit.fill,
+        CachedNetworkImage(
+          imageUrl: backdropPath,
+          placeholder: (context, url) => const LoadingIndicator(),
+          errorWidget: (context, url, error) =>
+              const Icon(Icons.image_not_supported_outlined),
+          fit: BoxFit.cover,
           width: double.infinity,
           height: MediaQuery.sizeOf(context).height * .2,
         ),
-        Container(
-          padding: const EdgeInsets.all(20),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
           child: Column(
             children: [
               Column(
@@ -44,8 +48,10 @@ class MovieDetailsBuilder extends StatelessWidget {
                 children: [
                   Text(
                     movie.originalTitle!,
-                    style: const TextStyle(
-                        color: AppTheme.whiteColor, fontSize: 18),
+                    style: Theme.of(context)
+                        .textTheme
+                        .titleMedium
+                        ?.copyWith(fontSize: 18),
                   ),
                   MovieDataRow(
                     releaseDate: extractYear(movie.releaseDate) ?? '',
@@ -70,12 +76,15 @@ class MovieDetailsBuilder extends StatelessWidget {
                     width: MediaQuery.sizeOf(context).width * .3,
                     height: MediaQuery.sizeOf(context).height * .2,
                     child: Stack(
-                      clipBehavior: Clip.none,
                       children: [
                         ClipRRect(
                           borderRadius: BorderRadius.circular(5),
-                          child: Image(
-                            image: NetworkImage(posterPath),
+                          child: CachedNetworkImage(
+                            imageUrl: posterPath,
+                            placeholder: (context, url) =>
+                                const LoadingIndicator(),
+                            errorWidget: (context, url, error) =>
+                                const Icon(Icons.image_not_supported_outlined),
                             fit: BoxFit.cover,
                             width: double.infinity,
                             height: double.infinity,
@@ -91,6 +100,7 @@ class MovieDetailsBuilder extends StatelessWidget {
                     child: Column(
                       children: [
                         GridView.builder(
+                          padding: EdgeInsets.zero,
                           shrinkWrap: true,
                           physics: const NeverScrollableScrollPhysics(),
                           gridDelegate:

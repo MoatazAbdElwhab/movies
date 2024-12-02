@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
-import 'package:movies/home/data/models/MovieModel.dart';
+import 'package:movies/shared/models/movie_model.dart';
 import '../data/data_sources/popular_movies_data_sources/popular_movies_api_data_source.dart';
 
 class PopularMoviesViewModel extends ChangeNotifier {
-  List<Movies> movies = [];
+  List<MovieModel> movies = [];
   String? errorMessage;
   bool isLoading = false;
 
