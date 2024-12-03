@@ -6,12 +6,13 @@ import 'package:movies/shared/models/movie_model.dart';
 
 class PopularMoviesApiDataSource {
   static Future<List<MovieModel>> getPopularMovies() async {
-    final uri = Uri.https(ApiConstants.baseUrl, ApiConstants.popularMoviesEndPoint);
+    final uri =
+        Uri.https(ApiConstants.baseUrl, ApiConstants.popularMoviesEndPoint);
     final response = await http
         .get(uri, headers: {'Authorization': ApiConstants.bearerToken});
     final responseBody = response.body;
     final json = jsonDecode(responseBody);
-    final topRatedMoviesResponse = Movies.fromJson(json);
+    final topRatedMoviesResponse = MoviesResponse.fromJson(json);
     if (response.statusCode == 200 && topRatedMoviesResponse.results != null) {
       return topRatedMoviesResponse.results!;
     } else {

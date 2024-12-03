@@ -48,7 +48,8 @@ class _TopSideWidgetState extends State<TopSideWidget> {
                 return InkWell(
                   onTap: () => Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => MovieDetails(
-                      title: movie.title!,
+                      // title: movie.title!,
+                      title: movie.title ?? "No Title",
                       movieId: movie.id!,
                     ),
                   )),
