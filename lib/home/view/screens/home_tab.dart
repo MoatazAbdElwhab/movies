@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movies/release/view/widgets/new_releases_widget.dart';
 import '../widgets/top_side_widget.dart';
 
 class HomeTab extends StatelessWidget {
@@ -7,9 +8,7 @@ class HomeTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: [
-        TopSideWidget(),
-      ],
+      children: [TopSideWidget(), NewReleasesWidget()],
     );
   }
 }
