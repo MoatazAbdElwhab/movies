@@ -16,31 +16,37 @@ class SliderMovies extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: MediaQuery.of(context).size.height * .27,
-      padding: const EdgeInsetsDirectional.only(start: 20, top: 10),
-      color: AppTheme.greyDarkColor,
+      color: AppTheme.darkGreyColor,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Align(
-            alignment: Alignment.topLeft,
-            child: Text(
-              title,
-              style: Theme.of(context).textTheme.titleMedium,
+          Padding(
+            padding: const EdgeInsetsDirectional.only(start: 20, top: 10),
+            child: Align(
+              alignment: Alignment.topLeft,
+              child: Text(
+                title,
+                style: Theme.of(context)
+                    .textTheme
+                    .titleMedium
+                    ?.copyWith(fontSize: 15),
+              ),
             ),
           ),
           const SizedBox(
             height: 12,
           ),
           Expanded(
-            child: ListView.separated(
+            child: ListView.builder(
+              shrinkWrap: true,
               scrollDirection: Axis.horizontal,
-              itemBuilder: (_, index) => MovieItem(
-                movie: movies![index],
+              itemBuilder: (_, index) => Padding(
+                padding: const EdgeInsetsDirectional.only(start: 12),
+                child: MovieItem(
+                  movie: movies![index],
+                ),
               ),
               itemCount: movies!.length,
-              separatorBuilder: (context, index) => const SizedBox(
-                width: 14,
-              ),
             ),
           ),
         ],
