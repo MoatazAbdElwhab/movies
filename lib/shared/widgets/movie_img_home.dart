@@ -10,22 +10,17 @@ class MovieImgHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    return Stack(
-      children: [
-        ClipRRect(
-          borderRadius: BorderRadius.circular(5),
-          child: CachedNetworkImage(
-            imageUrl: imgUrl,
-            placeholder: (context, __) => const LoadingIndicator(),
-            errorWidget: (context, _, __) =>
-                const Icon(Icons.image_not_supported_outlined),
-            height: size.height * 0.22,
-            width: size.width * 0.3,
-            fit: BoxFit.cover,
-          ),
-        ),
-        FavoriteButton(),
-      ],
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(5),
+      child: CachedNetworkImage(
+        imageUrl: imgUrl,
+        placeholder: (context, __) => const LoadingIndicator(),
+        errorWidget: (context, _, __) =>
+            const Icon(Icons.image_not_supported_outlined),
+        height: size.height * 0.22,
+        width: size.width * 0.26,
+        fit: BoxFit.fill,
+      ),
     );
   }
 }

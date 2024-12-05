@@ -36,7 +36,9 @@ class _HomeScreenState extends State<HomeScreen> {
     return ChangeNotifierProvider(
       create: (context) => SearchViewModel(),
       child: Scaffold(
-        body: SafeArea(child: tabs[selectedIndex]),
+        body: SafeArea(
+          child: tabs[selectedIndex],
+        ),
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: selectedIndex,
           onTap: (value) {

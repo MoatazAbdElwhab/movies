@@ -143,7 +143,7 @@ class _TopSideWidgetState extends State<TopSideWidget> {
                 );
               },
               options: CarouselOptions(
-                height: screenHeight * 0.5,
+                height: screenHeight * 0.43,
                 autoPlay: true,
                 viewportFraction: 1,
                 autoPlayCurve: Curves.easeInOut,
