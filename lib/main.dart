@@ -5,7 +5,7 @@ import 'package:movies/home/view/screens/home_screen.dart';
 import 'package:movies/shared/app_theme.dart';
 
 void main() {
-  runApp(DevicePreview(enabled: true, builder: (context) => const Movies()));
+  runApp(DevicePreview(enabled: false, builder: (context) => const Movies()));
 }
 
 class Movies extends StatelessWidget {

@@ -2,10 +2,10 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies/shared/utils/utils.dart';
-import '../../../shared/api_constants..dart';
-import '../../../shared/app_theme.dart';
-import '../../../shared/widgets/loading_indicator.dart';
-import '../../data/models/SearchModelResponse.dart';
+import '../api_constants..dart';
+import '../app_theme.dart';
+import 'loading_indicator.dart';
+import '../../search/data/models/SearchModelResponse.dart';
 
 class MovieSearchItem extends StatelessWidget {
   const MovieSearchItem({

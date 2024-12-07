@@ -27,9 +27,9 @@ class MovieItem extends StatelessWidget {
             height: MediaQuery.sizeOf(context).height * 25,
             margin: const EdgeInsets.only(bottom: 20),
             decoration: BoxDecoration(
-              color: AppTheme.greyDarkColor,
+              color: AppTheme.dark1Color,
               borderRadius: BorderRadius.circular(5),
-              border: Border.all(width: 2, color: AppTheme.greyDarkColor),
+              border: Border.all(width: 2, color: AppTheme.dark1Color),
               boxShadow: [
                 BoxShadow(
                   color: Colors.black.withOpacity(.5),
