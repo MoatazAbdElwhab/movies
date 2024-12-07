@@ -1,10 +1,11 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies/home/view/screens/home_screen.dart';
 import 'package:movies/shared/app_theme.dart';
 
 void main() {
-  runApp(const Movies());
+  runApp(DevicePreview(enabled: true, builder: (context) => const Movies()));
 }
 
 class Movies extends StatelessWidget {
@@ -17,6 +18,9 @@ class Movies extends StatelessWidget {
       splitScreenMode: true,
       designSize: const Size(412, 870),
       child: MaterialApp(
+        //  useInheritedMediaQuery: true,
+        locale: DevicePreview.locale(context),
+        builder: DevicePreview.appBuilder,
         debugShowCheckedModeBanner: false,
         routes: {
           HomeScreen.routeName: (context) => const HomeScreen(),

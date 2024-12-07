@@ -15,7 +15,7 @@ class SliderMovies extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height * .27,
+      // height: MediaQuery.of(context).size.height * .27,
       color: AppTheme.darkGreyColor,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -36,7 +36,8 @@ class SliderMovies extends StatelessWidget {
           const SizedBox(
             height: 12,
           ),
-          Expanded(
+          SizedBox(
+            height: 190,
             child: ListView.builder(
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,

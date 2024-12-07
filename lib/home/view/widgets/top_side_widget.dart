@@ -87,8 +87,9 @@ class _TopSideWidgetState extends State<TopSideWidget> {
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(5),
                                 child: CachedNetworkImage(
-                                  imageUrl: ApiConstants.imageBaseUrl +
-                                      movie.backdropPath!,
+                                  imageUrl: movie.backdropPath == null
+                                      ? 'assets/images/placeholder_image.jpg'
+                                      : '${ApiConstants.imageBaseUrl}${movie.backdropPath}',
 
                                   fit: BoxFit.cover,
                                   placeholder: (context, url) =>
