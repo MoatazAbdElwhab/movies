@@ -3,6 +3,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:movies/movie_details/view/screens/movie_details.dart';
 import 'package:movies/shared/widgets/error_indicator.dart';
+import 'package:movies/shared/widgets/favorite_button.dart';
 import 'package:movies/shared/widgets/loading_indicator.dart';
 import 'package:provider/provider.dart';
 import '../../../shared/api_constants..dart';
@@ -48,7 +49,6 @@ class _TopSideWidgetState extends State<TopSideWidget> {
                 return InkWell(
                   onTap: () => Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => MovieDetails(
-                      // title: movie.title!,
                       title: movie.title ?? "No Title",
                       movieId: movie.id!,
                     ),
@@ -64,7 +64,6 @@ class _TopSideWidgetState extends State<TopSideWidget> {
                           fit: BoxFit.cover,
                           placeholder: (context, url) =>
                               const LoadingIndicator(),
-                          // Show while loading
                           errorWidget: (context, url, error) => Image.asset(
                             'assets/images/placeholder_image.jpg',
                             fit: BoxFit.fill,
@@ -94,7 +93,6 @@ class _TopSideWidgetState extends State<TopSideWidget> {
                                   fit: BoxFit.cover,
                                   placeholder: (context, url) =>
                                       const LoadingIndicator(),
-                                  // Show while loading
                                   errorWidget: (context, url, error) =>
                                       Image.asset(
                                     'assets/images/placeholder_image.jpg',
@@ -103,7 +101,7 @@ class _TopSideWidgetState extends State<TopSideWidget> {
                                 ),
                               ),
                             ),
-                            Image.asset('assets/images/bookmark.png'),
+                            FavoriteButton(),
                           ],
                         ),
                       ),
