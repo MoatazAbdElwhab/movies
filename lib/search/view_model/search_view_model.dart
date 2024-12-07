@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:movies/search/data/data_sources/remote_data_sources/search_remote_api_data_source.dart';
-import '../data/models/SearchModelResponse.dart';
+import 'package:movies/shared/models/movie_model.dart';
 
 class SearchViewModel extends ChangeNotifier {
   final dataSource = SearchRemoteApiDateSource();
-  List<Movie> movies = [];
+  List<MovieModel> movies = [];
   bool isLoading = false;
   String? errorMessage;
   String? queryResult;

@@ -114,7 +114,11 @@ class _SearchTabState extends State<SearchTab> {
                             ),
                           );
                         },
-                        child: MovieSearchItem(movie: movie));
+                        child: Padding(
+                          padding: EdgeInsets.only(
+                              top: 20.h, left: 5.w, bottom: 17.h),
+                          child: MovieSearchItem(movie: movie),
+                        ));
                   },
                 );
               },
