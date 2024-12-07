@@ -6,7 +6,7 @@ import '../../../shared/app_theme.dart';
 import '../../../shared/widgets/error_indicator.dart';
 import '../../../shared/widgets/loading_indicator.dart';
 import '../../view_model/search_view_model.dart';
-import '../widgets/movie_search_item.dart';
+import '../../../shared/widgets/movie_search_item.dart';
 import '../widgets/search_text_field.dart';
 import '../../../shared/utils/validator.dart'; // Import Validator
 
@@ -98,7 +98,7 @@ class _SearchTabState extends State<SearchTab> {
                 return ListView.separated(
                   itemCount: searchViewModel.movies.length,
                   separatorBuilder: (_, __) => Divider(
-                    color: AppTheme.darkLiverColor,
+                    color: AppTheme.grey1Color,
                     height: 1.h,
                   ),
                   itemBuilder: (context, index) {

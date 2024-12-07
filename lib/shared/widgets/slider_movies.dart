@@ -16,7 +16,7 @@ class SliderMovies extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       // height: MediaQuery.of(context).size.height * .27,
-      color: AppTheme.darkGreyColor,
+      color: AppTheme.dark2Color,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

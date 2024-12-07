@@ -40,7 +40,7 @@ class _NewReleasesWidgetState extends State<NewReleasesWidget> {
             return const Center(child: Text('No new releases found'));
           } else {
             return Container(
-              color: AppTheme.darkGreyColor,
+              color: AppTheme.dark2Color,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
