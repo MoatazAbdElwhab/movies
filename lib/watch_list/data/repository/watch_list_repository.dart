@@ -6,16 +6,17 @@ class WatchListRepository {
       MoviesWatchListFirebaseDataSource();
 
   Future<void> addMovieToFireStore(MovieFav movie) async {
-    dataSource.addMovieToFireStore(movie).timeout(
-      const Duration(microseconds: 100),
-      onTimeout: () {
-        print('add');
-      },
-    ).catchError((error) {});
+    await dataSource
+        .addMovieToFireStore(movie)
+        .timeout(
+          const Duration(microseconds: 100),
+          onTimeout: () {},
+        )
+        .catchError((error) {});
   }
 
   Future<void> removeMovieToFireStore(MovieFav movie) async {
-    dataSource
+    await dataSource
         .removeMovieToFireStore(movie)
         .timeout(
           const Duration(microseconds: 100),
