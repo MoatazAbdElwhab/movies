@@ -9,6 +9,7 @@ import 'package:movies/shared/app_theme.dart';
 import 'package:movies/shared/utils/utils.dart';
 import 'package:movies/shared/widgets/favorite_button.dart';
 import 'package:movies/shared/widgets/loading_indicator.dart';
+import 'package:movies/watch_list/data/models/movie_fav.dart';
 
 class MovieDetailsBuilder extends StatelessWidget {
   const MovieDetailsBuilder({
@@ -90,7 +91,14 @@ class MovieDetailsBuilder extends StatelessWidget {
                             height: double.infinity,
                           ),
                         ),
-                        FavoriteButton(),
+                        FavoriteButton(
+                          movieFav: MovieFav(
+                            id: movie.id!,
+                            title: movie.title!,
+                            date: movie.releaseDate!,
+                            imgPath: movie.posterPath!,
+                          ),
+                        ),
                       ],
                     ),
                   ),

@@ -2,9 +2,11 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:movies/core/service_locator.dart';
 import 'package:movies/home/view/screens/home_screen.dart';
 import 'package:movies/shared/app_theme.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:provider/provider.dart';
 import 'firebase_options.dart';
 
 Future<void> main() async {
@@ -13,7 +15,16 @@ Future<void> main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   await FirebaseFirestore.instance.disableNetwork();
-  runApp(DevicePreview(enabled: false, builder: (context) => const Movies()));
+  await ServiceLocator.watchListViewModel.getMoviesToWatchList();
+
+  runApp(
+    DevicePreview(
+      enabled: false,
+      builder: (context) => ChangeNotifierProvider(
+          create: (context) => ServiceLocator.watchListViewModel,
+          child: const Movies()),
+    ),
+  );
 }
 
 class Movies extends StatelessWidget {
