@@ -1,8 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies/movie_details/view/screens/movie_details.dart';
 import 'package:movies/shared/widgets/error_indicator.dart';
+import 'package:movies/shared/widgets/favorite_button.dart';
 import 'package:movies/shared/widgets/loading_indicator.dart';
 import 'package:provider/provider.dart';
 import '../../../shared/api_constants.dart';
@@ -48,7 +50,6 @@ class _TopSideWidgetState extends State<TopSideWidget> {
                 return InkWell(
                   onTap: () => Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => MovieDetails(
-                      // title: movie.title!,
                       title: movie.title ?? "No Title",
                       movieId: movie.id!,
                     ),
@@ -64,7 +65,6 @@ class _TopSideWidgetState extends State<TopSideWidget> {
                           fit: BoxFit.cover,
                           placeholder: (context, url) =>
                               const LoadingIndicator(),
-                          // Show while loading
                           errorWidget: (context, url, error) => Image.asset(
                             'assets/images/placeholder_image.jpg',
                             fit: BoxFit.fill,
@@ -85,16 +85,14 @@ class _TopSideWidgetState extends State<TopSideWidget> {
                               width: screenWidth * 0.3,
                               height: screenHeight * 0.25,
                               child: ClipRRect(
-                                borderRadius: BorderRadius.circular(5),
+                                borderRadius: BorderRadius.circular(5.r),
                                 child: CachedNetworkImage(
                                   imageUrl: movie.backdropPath == null
                                       ? 'assets/images/placeholder_image.jpg'
                                       : '${ApiConstants.imageBaseUrl}${movie.backdropPath}',
-
                                   fit: BoxFit.cover,
                                   placeholder: (context, url) =>
                                       const LoadingIndicator(),
-                                  // Show while loading
                                   errorWidget: (context, url, error) =>
                                       Image.asset(
                                     'assets/images/placeholder_image.jpg',
@@ -103,7 +101,7 @@ class _TopSideWidgetState extends State<TopSideWidget> {
                                 ),
                               ),
                             ),
-                            Image.asset('assets/images/bookmark.png'),
+                            FavoriteButton(),
                           ],
                         ),
                       ),
@@ -114,26 +112,36 @@ class _TopSideWidgetState extends State<TopSideWidget> {
                           children: [
                             SizedBox(height: screenHeight * 0.32),
                             Padding(
-                              padding:
-                                  const EdgeInsetsDirectional.only(end: 20.0),
+                              padding: EdgeInsetsDirectional.only(end: 20.0.sp),
                               child: Text(
                                 movie.title!,
-                                style: Theme.of(context).textTheme.titleMedium!,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .titleMedium!
+                                    .copyWith(fontSize: 16.sp),
                                 overflow: TextOverflow.ellipsis,
                               ),
                             ),
-                            const SizedBox(height: 5),
+                            SizedBox(height: 5.h),
                             Row(
                               children: [
-                                Text(movie.releaseDate!,
-                                    style:
-                                        Theme.of(context).textTheme.bodySmall!),
-                                const SizedBox(
-                                  width: 5,
+                                Text(
+                                  movie.releaseDate!,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodySmall!
+                                      .copyWith(fontSize: 10.sp),
                                 ),
-                                Text(movie.adult! ? 'NC-17' : 'PG-13',
-                                    style:
-                                        Theme.of(context).textTheme.bodySmall!),
+                                SizedBox(
+                                  width: 5.w,
+                                ),
+                                Text(
+                                  movie.adult! ? 'NC-17' : 'PG-13',
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodySmall!
+                                      .copyWith(fontSize: 10.sp),
+                                ),
                               ],
                             ),
                           ],
