@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movies/movie_details/view/screens/movie_details.dart';
 import 'package:movies/release/view_model/new_releases_view_model.dart';
-import 'package:movies/shared/api_constants..dart';
+import 'package:movies/shared/api_constants.dart';
 import 'package:movies/shared/app_theme.dart';
 import 'package:movies/shared/widgets/error_indicator.dart';
 import 'package:movies/shared/widgets/favorite_button.dart';

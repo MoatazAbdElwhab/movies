@@ -4,7 +4,7 @@ import 'package:movies/movie_details/data/models/movie_details/movie_details_mod
 import 'package:movies/movie_details/view/widgets/movie_data_row.dart';
 import 'package:movies/movie_details/view/widgets/movie_rating_row.dart';
 import 'package:movies/movie_details/view/widgets/movie_tag.dart';
-import 'package:movies/shared/api_constants..dart';
+import 'package:movies/shared/api_constants.dart';
 import 'package:movies/shared/app_theme.dart';
 import 'package:movies/shared/utils/utils.dart';
 import 'package:movies/shared/widgets/favorite_button.dart';

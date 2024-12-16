@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies/shared/utils/utils.dart';
 import 'package:movies/watch_list/data/models/movie_fav.dart';
-import '../api_constants..dart';
+import '../api_constants.dart';
 import '../app_theme.dart';
 import 'loading_indicator.dart';
 

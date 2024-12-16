@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movies/movie_details/view/screens/movie_details.dart';
-import 'package:movies/shared/api_constants..dart';
+import 'package:movies/shared/api_constants.dart';
 import 'package:movies/shared/models/movie_model.dart';
 import 'package:movies/movie_details/view/widgets/movie_data_row.dart';
 import 'package:movies/movie_details/view/widgets/movie_rating_row.dart';
