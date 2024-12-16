@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movies/home/view_model/popular_movies_view_model.dart';
 import 'package:movies/home/view_model/recomended_movies_view_model.dart';
-import 'package:movies/shared/api_constants..dart';
+import 'package:movies/shared/api_constants.dart';
 import 'package:movies/shared/models/movie_model.dart';
 import 'package:movies/shared/widgets/error_indicator.dart';
 import 'package:movies/shared/widgets/loading_indicator.dart';

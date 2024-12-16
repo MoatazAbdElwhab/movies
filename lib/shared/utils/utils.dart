@@ -5,7 +5,6 @@ String? minutesToHours(int? minutes) {
   return '${hours}h ${remainingMinutes}m';
 }
 
-
 String? extractYear(String? date) {
   if (date == null) {
     return null;

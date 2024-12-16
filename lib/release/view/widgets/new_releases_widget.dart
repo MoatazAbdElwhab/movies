@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:movies/movie_details/view/screens/movie_details.dart';
 import 'package:movies/release/view_model/new_releases_view_model.dart';
-import 'package:movies/shared/api_constants..dart';
+import 'package:movies/shared/api_constants.dart';
 import 'package:movies/shared/app_theme.dart';
 import 'package:movies/shared/widgets/error_indicator.dart';
 import 'package:movies/shared/widgets/favorite_button.dart';
 import 'package:movies/shared/widgets/loading_indicator.dart';
 import 'package:movies/shared/widgets/movie_img_home.dart';
+import 'package:movies/watch_list/data/models/movie_fav.dart';
 import 'package:provider/provider.dart';
 
 class NewReleasesWidget extends StatefulWidget {
@@ -81,7 +82,14 @@ class _NewReleasesWidgetState extends State<NewReleasesWidget> {
                               )),
                               child: MovieImgHome(imgUrl: imgUrl),
                             ),
-                            FavoriteButton(),
+                            FavoriteButton(
+                              movieFav: MovieFav(
+                                id: movie.id!,
+                                title: movie.title!,
+                                date: movie.releaseDate!,
+                                imgPath: movie.posterPath!,
+                              ),
+                            ),
                           ]),
                         );
                       },
