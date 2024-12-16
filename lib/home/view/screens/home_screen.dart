@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movies/category/view/screens/category_screen.dart';
 import 'package:movies/home/view/screens/home_tab.dart';
 import 'package:movies/search/view/screens/search_tab.dart';
 import 'package:movies/search/view_model/search_view_model.dart';
@@ -19,11 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
   List<Widget> tabs = [
     const HomeTab(),
     const SearchTab(),
-    const Center(
-        child: Text(
-      'Browse',
-      style: TextStyle(color: AppTheme.whiteColor),
-    )),
+    const CategoryScreen(),
     const WatchListScreen(),
   ];
   int selectedIndex = 0;
