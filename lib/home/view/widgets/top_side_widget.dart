@@ -8,6 +8,7 @@ import 'package:movies/shared/widgets/favorite_button.dart';
 import 'package:movies/shared/widgets/loading_indicator.dart';
 import 'package:provider/provider.dart';
 import '../../../shared/api_constants.dart';
+import '../../../watch_list/data/models/movie_fav.dart';
 import '../../view_model/popular_movies_view_model.dart';
 
 class TopSideWidget extends StatefulWidget {
@@ -101,7 +102,14 @@ class _TopSideWidgetState extends State<TopSideWidget> {
                                 ),
                               ),
                             ),
-                            FavoriteButton(),
+                            FavoriteButton(
+                              movieFav: MovieFav(
+                                id: movie.id!,
+                                title: movie.title!,
+                                date: movie.releaseDate!,
+                                imgPath: movie.posterPath!,
+                              ),
+                            ),
                           ],
                         ),
                       ),

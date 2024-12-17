@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies/movie_details/data/models/movie_details/movie_details_model.dart';
 import 'package:movies/movie_details/view/widgets/movie_data_row.dart';
 import 'package:movies/movie_details/view/widgets/movie_rating_row.dart';
@@ -38,10 +39,10 @@ class MovieDetailsBuilder extends StatelessWidget {
               const Icon(Icons.image_not_supported_outlined),
           fit: BoxFit.cover,
           width: double.infinity,
-          height: MediaQuery.sizeOf(context).height * .2,
+          height: MediaQuery.sizeOf(context).height * .25,
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+          padding: EdgeInsets.symmetric(horizontal: 20.sp, vertical: 12.sp),
           child: Column(
             children: [
               Column(
@@ -52,7 +53,7 @@ class MovieDetailsBuilder extends StatelessWidget {
                     style: Theme.of(context)
                         .textTheme
                         .titleMedium
-                        ?.copyWith(fontSize: 18),
+                        ?.copyWith(fontSize: 18.sp),
                   ),
                   MovieDataRow(
                     releaseDate: extractYear(movie.releaseDate) ?? '',
@@ -62,13 +63,13 @@ class MovieDetailsBuilder extends StatelessWidget {
                             ? 'NC-17'
                             : 'PG-13',
                     runTime: minutesToHours(movie.runtime) ?? '?h ??m',
-                    fontSize: 10,
-                    sizedBoxWidth: 6,
+                    fontSize: 10.sp,
+                    sizedBoxWidth: 6.w,
                   )
                 ],
               ),
-              const SizedBox(
-                height: 12,
+              SizedBox(
+                height: 12.h,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -79,7 +80,7 @@ class MovieDetailsBuilder extends StatelessWidget {
                     child: Stack(
                       children: [
                         ClipRRect(
-                          borderRadius: BorderRadius.circular(5),
+                          borderRadius: BorderRadius.circular(5.r),
                           child: CachedNetworkImage(
                             imageUrl: posterPath,
                             placeholder: (context, url) =>
@@ -104,7 +105,7 @@ class MovieDetailsBuilder extends StatelessWidget {
                   ),
                   SizedBox(
                     width: MediaQuery.sizeOf(context).width * .58,
-                    height: MediaQuery.sizeOf(context).height * .25,
+                    height: MediaQuery.sizeOf(context).height * .26,
                     child: Column(
                       children: [
                         GridView.builder(
@@ -126,8 +127,8 @@ class MovieDetailsBuilder extends StatelessWidget {
                         ),
                         Text(
                           movie.overview!,
-                          style: const TextStyle(
-                              color: AppTheme.whiteColor, fontSize: 13),
+                          style: TextStyle(
+                              color: AppTheme.whiteColor, fontSize: 13.sp),
                           overflow: TextOverflow.ellipsis,
                           maxLines: 3,
                         ),
@@ -136,8 +137,8 @@ class MovieDetailsBuilder extends StatelessWidget {
                         ),
                         MovieRatingRow(
                           rating: movie.voteAverage ?? 7.2,
-                          fontSize: 18,
-                          iconSize: 26,
+                          fontSize: 18.sp,
+                          iconSize: 26.sp,
                           sizedBoxWidth: 6,
                         )
                       ],
