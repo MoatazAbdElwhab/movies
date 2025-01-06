@@ -4,7 +4,7 @@
 1. [🚀 Introduction](#-introduction)
 2. [🛠 Installation & Setup](#-installation--setup)
 3. [🤝 Contribution Guide](#-contribution-guide)
-4. [🖥️ Technical Stack](#-technical-stack)
+4. [🖥️ Technical Stack](#️-technical-stack)
 5. [🎥 Demo Video](#-demo-video)
 6. [🛠 Features](#-features)
 7. [📷 Screenshots](#-screenshots)
