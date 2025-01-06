@@ -121,5 +121,5 @@ Watch the demo video to see the application in action:
 ## 👥 Contributors
 - **Mohammed Hussein** ([Mohammedhussein12](https://github.com/Mohammedhussein12))
 - **Moataz Abd El wahab** ([MoatazAbdElwahab](https://github.com/MoatazAbdElwhab))
-- **Ahmed Safwat* ([ASHmd97](https://github.com/ASHmd97))
+- **Ahmed Safwat** ([ASHmd97](https://github.com/ASHmd97))
 
