@@ -81,9 +81,9 @@ We welcome contributions from the community! To contribute:
 
 ## 📷 Screenshots
 
-| Splash | Search 2 | Wishlist |
-|------------------------------|------------------------------|-----------------------------|
-| ![Splash Screenshot](assets/screenshots/splash.png) | ![Search 2 Screenshot](assets/screenshots/search2.png) | ![Wishlist Screenshot](assets/screenshots/wishlist.png) |
+| Splash | Search 2 | Wishlist                                                 |
+|------------------------------|------------------------------|----------------------------------------------------------|
+| ![Splash Screenshot](assets/screenshots/splash.png) | ![Search 2 Screenshot](assets/screenshots/search2.png) | ![Wishlist Screenshot](assets/screenshots/Watchlist.png) |
 
 | Home | Movie Details | Search |
 |------------------------------|------------------------------|-----------------------------|
