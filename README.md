@@ -14,7 +14,6 @@
 The Movies App is a beautifully designed platform for browsing and discovering movies. With an intuitive user interface, users can view trending movies, explore details, and manage a personalized watchlist.
 
 ## 🛠 Installation & Setup
-
 To run this project locally, follow these steps:
 
 ### Prerequisites
