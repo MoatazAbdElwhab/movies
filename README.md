@@ -119,5 +119,5 @@ Watch the demo video to see the application in action:
 | ![Splash Screenshot](assets/screenshots/splash.png) | ![Search 2 Screenshot](assets/screenshots/search2.png) | ![Wishlist Screenshot](assets/screenshots/Watchlist.png) |
 
 ## 👥 Contributors
-- **MoatazAbdElwhab** ((https://github.com/MoatazAbdElwhab))
+- **MoatazAbdElwhab** (https://github.com/MoatazAbdElwhab)
 
